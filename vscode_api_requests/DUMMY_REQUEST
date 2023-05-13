@@ -1,0 +1,3 @@
+GET http://localhost:8080/api/v0/word_bubble_data_week HTTP/1.1
+content-type: application/json
+Accept: application/json

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYTimes Word Bubble</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.js"></script>
+    <link rel="stylesheet" href="/static/css/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <div id="container" class="max-w-3xl mx-auto py-10 px-6 bg-white shadow-lg rounded-lg mt-10">
+        <h1 class="font-serif text-4xl font-bold mb-6 text-blue-700 text-center">New York Times Top 50 Word Bubble</h1>
+        <h2 class="text-lg text-gray-600 mb-6 text-center">This visualization represents the top 50 most frequently appearing words in the most popular titles and abstracts of articles
+            viewed on The New York Times of the past day and week.</h2>
+        <h3 class="text-base text-gray-500 mb-6 text-center">Data Source: <a
+                href="https://developer.nytimes.com/docs/most-popular-product/1/routes/viewed/%7Bperiod%7D.json/get"
+                class="text-blue-700">NYTimes Most Viewed API</a></h3>
+
+        <div class="flex flex-col items-center m-auto">
+            <div class="flex items-center mb-6 justify-center">
+                <input type="checkbox" id="toggle" name="view" value="week" class="hidden">
+                <label for="toggle" class="bg-indigo-300 w-14 h-8 rounded-full px-1 flex items-center cursor-pointer"
+                    id="toggleButtonLabel">
+                    <div id="toggleBall" class="bg-white w-6 h-6 rounded-full shadow-md transform duration-300"></div>
+                </label>
+                <span class="ml-2 text-sm font-bold" id="toggleLabel">Yesterday</span>
+            </div>
+            <div id="word-bubble" class="w-[95%] h-[400px] bg-gray-100 rounded shadow-lg font-semibold"></div>
+        </div>
+        <div class="p-4">
+            <h2 class="text-xl font-bold mb-4">API routes for JSON responses:</h2>
+            <ul class="list-disc pl-8">
+              <li>api/v0/word_bubble_data_day</li>
+              <li>api/v0/word_bubble_data_week</li>
+            </ul>
+          </div>
+    </div>
+    <script>
+        const dayUrl = '{{ url_for("api.word_bubble_data_day") }}';
+        const weekUrl = '{{ url_for("api.word_bubble_data_week") }}';
+    </script>
+    <script src="/static/js/word_bubble.js"></script>
+
+      
+</body>
+
+</html>
+

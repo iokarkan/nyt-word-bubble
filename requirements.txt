@@ -1,0 +1,10 @@
+APScheduler==3.10.1
+Flask==2.3.2
+Flask-Migrate==4.0.4
+Flask-SQLAlchemy==3.0.3
+nltk==3.8.1
+numpy==1.24.3
+SQLAlchemy==2.0.12
+gunicorn==20.1.0
+python-dotenv==1.0.0
+requests
