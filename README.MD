@@ -10,6 +10,7 @@ Data visualization web app using using New York Times API data, a word bubble of
 - SQLite with Flask-SQLAlchemy
 - Tailwind CSS
 - d3 javascript visualization library
+- Docker-ready
 
 Built with <3 following Miguel Grinberg's Flask course and book. 
 
