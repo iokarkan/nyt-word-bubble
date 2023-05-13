@@ -1,5 +1,7 @@
 # New York Times Word Bubble Data
 
+![Screenshot of the New York Times word bubble demo.](./demo.png)
+
 Data visualization web app using using New York Times API data, a word bubble of top 50 words appearing in the titles and abstracts of yesterday's or last week's most viewed articles.
 
 ## Features
