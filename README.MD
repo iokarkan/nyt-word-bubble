@@ -1,4 +1,4 @@
-# New York Times Word Bubble Data
+# New York Times Top50 Word Bubble
 
 ![Screenshot of the New York Times word bubble demo.](./demo.png)
 
