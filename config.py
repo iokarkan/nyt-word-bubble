@@ -14,7 +14,7 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_RECORD_QUERIES = True
     TESTING = False
-    DEBUG = os.environ.get("FLASK_DEBUG")
+    DEBUG = os.environ.get("FLASK_DEBUG") or False
 
     @staticmethod
     def init_app(app):
@@ -30,6 +30,7 @@ class ProductionConfig(Config):
 
 
 class TestingConfig(ProductionConfig):
+    TESTING=True
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "nytwords-test.db")
 

@@ -1,7 +1,7 @@
 import unittest
 from flask import current_app, url_for
-from flask_ml_template import create_app, db
-
+from nyt_word_bubble import create_app, db
+from nyt_word_bubble.api.routes import WordFrequencyDay 
 
 class BasicsTestCase(unittest.TestCase):
     def setUp(self):
@@ -28,12 +28,20 @@ class APITestCase(unittest.TestCase):
         self.app_context = self.app.test_request_context()
         self.app_context.push()
         self.client = self.app.test_client()
+        db.create_all()
 
     def tearDown(self):
+        db.session.remove()
+        db.drop_all()
         self.app_context.pop()
 
-    def test_api_hello(self):
-        response =  self.client.get(url_for('api.hello'))
-        self.assertEqual(response.json['message'], 'Hello 😊! This is a dummy API service, created with Flask.')
+    def test_api_day_word(self):
+        day_word = WordFrequencyDay(id=1, word="Test", frequency=2)
+        db.session.add(day_word)
+        db.session.commit()
+        response =  self.client.get(url_for('api.word_bubble_data_day'))
+        self.assertEqual(response.json, [{'frequency': 2, 'id': 1, 'word': 'Test'}])
+        db.session.delete(day_word)
+        db.session.commit()
 
 
