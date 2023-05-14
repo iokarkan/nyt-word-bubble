@@ -29,6 +29,10 @@ flask db upgrade or flask upgrade
 flask run --port 8080 --reload
 ```
 
+## Tests
+
+Run flask tests with `flask test`.
+
 You may also use 'flask shell' for interactive shell.
 
 ## Docker
